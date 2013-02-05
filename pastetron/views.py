@@ -51,7 +51,7 @@ class Post(object):
     def POST(self):
         form = web.input(poster='', title='', syntax='', body='')
         if form.body.strip() == '':
-            web.seeother('/')
+            return web.seeother('/')
         if form.syntax == '':
             syntax = highlighting.guess_lexer_alias(form.body)
         else:
